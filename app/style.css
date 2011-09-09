@@ -1,0 +1,110 @@
+html{height:100%}body{height:100%;overflow:auto;font-family:Helvetica,Arial,Sans-Serif;font-size:100.1%;line-height:1;color:#444;zoom:1}html,body,div,h1,h2{margin:0;padding:0}
+            #wrapper {
+                position:relative;
+                width: 800px;
+                margin:auto;
+                height:100%;
+            }
+           
+            #typefield {
+                width:770px;
+                padding:10px;
+                margin-top:10px;
+                font-size:26px;
+                border: 5px solid grey;
+                height: 80px;
+                word-wrap: break-word;
+            }
+            #inputarea {
+                padding: 15px 0px 15px 0px;
+            }
+            #keyboard {
+                position:relative;
+                width:800px;
+                margin:auto;
+                height:373px;
+                bottom:0;
+                padding:0;
+                background-image:url(img/QWERTY.png);
+            }
+            #presample {
+                font-weight:bold;
+                padding:20px 15px 5px 5px;
+                vertical-align:middle;
+            }
+            #footer {
+                margin-top:30px;
+                line-height:18px;
+                font-size:14px;
+            }
+            h1 {
+                font-size:35px;
+                padding-top:15px;
+                padding-bottom:20px;
+            }
+            ul {
+                display:inline;
+                list-style-type:none;
+            }
+            li {
+                font-weight:normal;
+                display:inline;
+                padding:10px 15px 10px 15px;
+                background-color:#98c8f7;
+                border-radius:10px;
+            }
+            li:hover {
+                cursor:pointer;
+                text-decoration:underline;
+                background-color:#c0dbf6;
+            }
+            div {
+                padding:10px 0 10px 0;
+            }
+            #customizearea {
+                position:relative;
+                height:100px;
+            }
+            #customize div{
+                font-size:20px;
+                line-height:30px;
+            }
+            #customize select{
+                position:absolute;
+                font-size:25px;
+                left:300px;
+                width:200px;
+            }
+            #fingertip{
+                margin-top:-10px;
+            }
+            #layout {
+                margin-top:10px;
+            }
+            #apply {
+                position:absolute;
+                right:5px;
+                top:5px;
+                padding:20px;
+                cursor:pointer;
+            }
+            .button {
+                font-family: Arial;
+                color: #ffffff;
+                font-size: 35px;
+                padding: 10px;
+                text-decoration: none;
+                -webkit-border-radius: 28px;
+                -moz-border-radius: 28px;
+                -webkit-box-shadow: 0px 1px 3px #666666;
+                -moz-box-shadow: 0px 1px 3px #666666;
+                text-shadow: 1px 1px 3px #666666;
+                border: solid #d9941c 2px;
+                background: -webkit-gradient(linear, 0 0, 0 100%, from(#fabc3f), to(#fa6f05));
+                background: -moz-linear-gradient(top, #fabc3f, #fa6f05);
+                -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#fabc3f, endColorStr=#fa6f05);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#fabc3f, endColorStr=#fa6f05);
+            }
+            .button:hover {
+                    background: #fab505;
+             }

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>Keyboard Heatmap | Realtime heatmap visualization of text character distribution</title>
+        <meta name="robots" content="index, follow" />
+		<meta name="description" content="This is a demonstration of a keyboard heatmap visualizing character distribution of texts while you're typing" />
+		<meta name="author" content="Patrick Wied" />
+		<meta name="keywords" content="heatmap, text heatmap, character distribution, heatmap.js" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="canonical" href="http://www.patrick-wied.at/projects/heatmap-keyboard/" />
+        <link rel="shortcut icon" type="image/png" href="../../img/favicon.png" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+            <h1>Visualizing character distribution of texts on a keyboard while you're typing...</h1>
+            <div style="position:absolute;right:10px;top:75px;z-index:10000;"><script type="text/javascript">
+		/* <![CDATA[ */
+			(function() {
+				var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+				s.type = 'text/javascript';
+				s.async = true;
+				s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+				t.parentNode.insertBefore(s, t);
+			})();
+		/* ]]> */
+		</script><a class="FlattrButton" style="display:none;" href="http://www.patrick-wied.at/static/heatmapjs/"></a>&nbsp;<a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="patrickwied">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<g:plusone size="tall"></g:plusone></div>
+            
+            </div>
+            <div id="customize">
+                <h2>Customize it</h2>
+                 <div id="customizearea">
+                    <label>Select your fingertip size</label>
+                    <select id="fingertip">
+                        <option>Small</option>
+                        <option selected>Normal</option>
+                        <option>Huuuge</option>
+                    </select><br />
+                    <label>Select a heatmap gradient</label>
+                    <select id="gradient">
+                        <option selected>Standard</option>
+                        <option>Nightly</option>
+                        <option>Fanzy</option>
+                    </select><br />
+                    <label>Select a keyboard layout</label>
+                    <select id="layout">
+                        <option value="QWERTY" selected>QWERTY Layout</option>
+                        <option value="DVORAK">DVORAK Layout</option>
+                    </select>
+                    <div id="apply" class="button">
+                        Apply customizations
+                    </div>
+                </div>
+            </div>
+            <div id="inputarea">
+                <h2>Please type something in the textbox or load a sample text :-)</h2>
+                <textarea id="typefield">heatmap.js keyboard - please type something</textarea>
+                <div id="presample">Load a text sample
+                <ul>
+                    <li>Sample Text 1</li>
+                    <li>Sample Text 2</li>
+                    <li>Sample Text 3</li>
+                    <li>Sample Text 4</li>
+                </ul>
+                </div>
+            </div>
+            <div id="keyboard">
+                
+            </div>
+            <div id="footer">
+                This is a spare time project I made with heatmap.js, a JavaScript Framework for generating Web heatmaps.<br />
+                Apple Inc. owns the rights on that keyboard image. 
+                If you have any questions, feel free to contact me. <a href="http://www.patrick-wied.at" title="Patrick Wied" target="_blank">www.patrick-wied.at</a>
+            </div>
+        </div>
+        <a href="https://github.com/pa7/Keyboard-Heatmap"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/bec6c51521dcc8148146135149fe06a9cc737577/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
+        <script type="text/javascript">
+            var app = {};
+            app.config = {
+                exclude: true
+            };
+        </script>
+        <script src="heatmap.js"></script>
+        <script src="keyboard-layouts.js"></script>
+        <script type="text/javascript">
+            (function(){
+                
+                app.init = function initialize(){
+                    var cfg = arguments[0] || {};
+                    var config = {};
+                    
+                    config.element = "keyboard";
+                    config.radius = cfg.radius || 50;
+                    config.visible = true;
+                    config.opacity = 40;
+                    if(cfg.gradient)
+                        config.gradient = cfg.gradient;
+                    
+                    app.coordinates = app.LAYOUTS[cfg.layout || "QWERTY"];
+                    if(cfg.layout)
+                       $("keyboard").style.backgroundImage = "url(img/"+cfg.layout+".png)"; 
+
+                    
+                    var heatmap = h337.create(config);
+                    app.heatmap = heatmap;
+                };
+                app.init();
+                
+                
+                var typeField = document.getElementById("typefield");
+                
+                
+
+                
+                var repaint = function(){
+                    // generate data object
+                    var data = [],
+                        max = 0,
+                        temp = {},
+                        text = typeField.value,
+                        tlen = text.length,
+                        coordinates = app.coordinates;
+                        
+                    for(var i=0; i < tlen; i++){
+                        
+                        var key = text.charAt(i);
+                        if(/^[A-Za-z]$/.test(key)){
+                            key = key.toUpperCase();
+                        }
+                        if(app.config.exclude && app.EXCLUDES.indexOf(key) == -1){
+                            var coord;
+                            coord = coordinates[key];
+                            if(coord){
+                                var joined = coord.join(";");
+                                if(!temp[joined])
+                                    temp[joined] = 0;
+                                    
+                                temp[joined] += 1;
+                            }
+                        }
+                    }
+
+                    for(var k in temp){
+                    
+                        var xy = k.split(";");
+                        var val = temp[k];
+                        
+                        data.push({x: xy[0], y: xy[1], count: val});
+                        
+                        if(val > max)
+                            max = val;
+                        
+                    }
+                    
+                    app.heatmap.store.setDataSet({max: max, data: data});
+                }
+                
+                var len = typeField.value.length;
+                typeField.onkeypress = function(e){
+                    // ignore cursor IE hack
+                    if(e.charCode == 0 && [37, 38, 39, 40].indexOf(e.keyCode) > -1)
+                        return;
+                        
+                    var key = String.fromCharCode(e.charCode || e.keyCode);
+                   
+                    if(/^[A-Za-z]$/.test(key)){
+                        key = key.toUpperCase();
+                    }
+                    if(app.config.exclude && app.EXCLUDES.indexOf(key) == -1){
+                        var coord = app.coordinates[key]
+                        coord && app.heatmap.store.addDataPoint.apply(app.heatmap.store,coord);
+                    }
+
+                };
+                typeField.onkeyup = function(e){
+                    if(Math.abs(len-this.value.length) > 1 || e.keyCode == 8){
+                        repaint();
+                    }
+                    len = this.value.length;
+                };
+                
+                
+                var items = document.getElementsByTagName("li");
+                for(var i=0; i < items.length; i++){
+                    (function(i){
+                        items[i].onclick = function(){
+                            typeField.value = app.SAMPLE_TEXT[i];
+                            repaint();
+                        };
+                    })(i);
+                }
+                var $ = function(id){
+                    return document.getElementById(id);
+                };
+                var gradients = [
+                    { 0.45: "rgb(0,0,255)", 0.55: "rgb(0,255,255)", 0.65: "rgb(0,255,0)", 0.95: "yellow", 1.0: "rgb(255,0,0)"},
+                    { 0.45: "rgb(255,255,255)", 0.70: "rgb(0,0,0)",0.9: "rgb(2,255,246)", 1.0: "rgb(3,34,66)"},
+                    { 0.45: "rgb(216,136,211)", 0.55: "rgb(0,255,255)", 0.65: "rgb(233,59,233)", 0.95: "rgb(255,0,240)", 1.0: "yellow"}
+                ];
+                $("apply").onclick = function(){
+                    var cfg = {};
+                    cfg.radius = Math.pow(10,$("fingertip").selectedIndex) +40;
+                    cfg.gradient = gradients[$("gradient").selectedIndex];
+                    cfg.layout =  $("layout").value;
+                    app.heatmap.cleanup();
+                    app.init(cfg);
+                    repaint();
+                }
+                repaint();
+            })();
+           
+        </script>
+        
+    <!-- IGNORE -->   
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <!-- Piwik -->
+	<script type="text/javascript">
+		var pkBaseURL = (("https:" == document.location.protocol) ? "https://www.patrick-wied.at/helper/piwik/" : "http://www.patrick-wied.at/helper/piwik/");
+		document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+		</script><script type="text/javascript">
+		try {
+		var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+		piwikTracker.trackPageView();
+		piwikTracker.enableLinkTracking();
+		} catch( err ) {}
+	</script><noscript><p><img src="http://www.patrick-wied.at/helper/piwik/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+	<!-- End Piwik Tag -->
+    <!-- /IGNORE -->
+    </body>
+</html>
