@@ -135,10 +135,13 @@
                             var coord;
                             coord = coordinates[key];
                             if(coord){
-                                var joined = coord.join(";");
-                                if(!temp[joined])
-                                    temp[joined] = 0;
-                                temp[joined] += 1;
+                                for(var s = 0; s < coord.length; s += 2) {
+                                    var joined = coord.slice(s, s+2).join(";");
+                                    if(!temp[joined])
+                                        temp[joined] = 0;
+
+                                    temp[joined] += 1;
+                                }
                             }
                         }
                     }
@@ -169,9 +172,12 @@
                     }
                     if(app.config.exclude && app.EXCLUDES.indexOf(key) == -1){
                         var coord = app.coordinates[key]
-                        coord && app.heatmap.store.addDataPoint.apply(app.heatmap.store,coord);
+                        if (coord) {
+                            for (var s = 0; s < coord.length; s+=2) {
+                                app.heatmap.store.addDataPoint.apply(app.heatmap.store,coord.slice(s, s+2));
+                            }
+                        }
                     }
-
                 };
                 typeField.onkeyup = function(e){
                     if(Math.abs(len-this.value.length) > 1 || e.keyCode == 8){
