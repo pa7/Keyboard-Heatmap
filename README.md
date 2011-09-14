@@ -4,6 +4,10 @@ The keyboard heatmap shows the distribution of characters of a text while you're
 
 **Contributions are very welcome!**
 
+## How to add your own layout
+I wrote an article about [how to add your own keyboard layout to the keyboard heatmap](http://www.patrick-wied.at/blog/new-layouts-for-the-keyboard-heatmap "check it out"). It's really easy and fun ;)
+
+
 ## Features planned
 - More Keyboard Layouts
 - Comparison View
