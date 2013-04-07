@@ -40,8 +40,8 @@
             <div id="customizearea">
                 <label>Select your fingertip size</label>
                 <select id="fingertip">
-                    <option>Small</option>
-                    <option selected>Normal</option>
+                    <option selected>Small</option>
+                    <option>Normal</option>
                     <option>Huuuge</option>
                 </select><br />
                 <label>Select a heatmap gradient</label>
@@ -49,13 +49,15 @@
                     <option selected>Standard</option>
                     <option>Nightly</option>
                     <option>Fanzy</option>
+                    <option>B/W</option>
                 </select><br />
                 <label>Select a keyboard layout</label>
                 <select id="layout">
-                    <option value="QWERTY" selected>QWERTY Layout</option>
+                    <option value="QWERTY">QWERTY Layout</option>
                     <option value="DVORAK">DVORAK Layout</option>
                     <option value="DVORAK_PROGRAMMER">DVORAK Programmer Layout</option>
                     <option value="COLEMAK">COLEMAK Layout</option>
+                    <option value="ERGODOX_QWERTY" selected>ErgoDox QWERTY Layout</option>
                 </select>
                 <div id="apply" class="button">
                     Apply customizations
@@ -129,9 +131,7 @@
                     for(var i=0; i < tlen; i++){
 
                         var key = text.charAt(i);
-                        if(/^[A-Za-z]$/.test(key)){
-                            key = key.toUpperCase();
-                        }
+
                         if(app.config.exclude && app.EXCLUDES.indexOf(key) == -1){
                             var coord;
                             coord = coordinates[key];
@@ -168,9 +168,6 @@
 
                     var key = String.fromCharCode(e.charCode || e.keyCode);
 
-                    if(/^[A-Za-z]$/.test(key)){
-                        key = key.toUpperCase();
-                    }
                     if(app.config.exclude && app.EXCLUDES.indexOf(key) == -1){
                         var coord = app.coordinates[key]
                         if (coord) {
@@ -200,9 +197,10 @@
                     return document.getElementById(id);
                 };
                 var gradients = [
-                    { 0.45: "rgb(0,0,255)", 0.55: "rgb(0,255,255)", 0.65: "rgb(0,255,0)", 0.95: "yellow", 1.0: "rgb(255,0,0)"},
-                    { 0.45: "rgb(255,255,255)", 0.70: "rgb(0,0,0)",0.9: "rgb(2,255,246)", 1.0: "rgb(3,34,66)"},
-                    { 0.45: "rgb(216,136,211)", 0.55: "rgb(0,255,255)", 0.65: "rgb(233,59,233)", 0.95: "rgb(255,0,240)", 1.0: "yellow"}
+                    { 0.45: "rgb(0,0,255)",     0.55: "rgb(0,255,255)", 0.65: "rgb(0,255,0)",    0.95: "rgb(255,255,0)", 1.00: "rgb(255,0,0)"},
+                    { 0.45: "rgb(255,255,255)", 0.70: "rgb(0,0,0)",     0.90: "rgb(2,255,246)",  1.00: "rgb(3,34,66)"},
+                    { 0.45: "rgb(216,136,211)", 0.55: "rgb(0,255,255)", 0.65: "rgb(233,59,233)", 0.95: "rgb(255,0,240)", 1.00: "rgb(255,255,0)"},
+                    { 0.45: "rgb(255,255,255)", 0.55: "rgb(191,191,191)", 0.65: "rgb(127,127,127)", 0.95: "rgb(63,63,63)", 1.00: "rgb(0,0,0)"}
                 ];
                 $("apply").onclick = function(){
                     var cfg = {};

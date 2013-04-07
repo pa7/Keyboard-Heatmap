@@ -48,6 +48,7 @@ html{height:100%}body{height:100%;overflow:auto;font-family:Helvetica,Arial,Sans
             }
             li {
                 font-weight:normal;
+				font-size:50%;
                 display:inline;
                 padding:10px 15px 10px 15px;
                 background-color:#98c8f7;
