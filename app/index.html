@@ -99,146 +99,24 @@
         </script>
         <script src="heatmap.js"></script>
         <script src="keyboard-layouts.js"></script>
-        <script type="text/javascript">
-            (function(){
-
-                app.init = function initialize(){
-                    var cfg = arguments[0] || {};
-                    var config = {};
-
-                    config.element = "keyboard";
-                    config.radius = cfg.radius || 50;
-                    config.visible = true;
-                    config.opacity = 40;
-                    if(cfg.gradient)
-                        config.gradient = cfg.gradient;
-
-                    app.coordinates = app.LAYOUTS[cfg.layout || "QWERTY"];
-                    if(cfg.layout)
-                       $("keyboard").style.backgroundImage = "url(img/"+cfg.layout+".png)";
-
-                    var heatmap = h337.create(config);
-                    app.heatmap = heatmap;
-                };
-                app.init();
-
-                var typeField = document.getElementById("typefield");
-
-                var repaint = function(){
-                    // generate data object
-                    var data = [],
-                        max = 0,
-                        temp = {},
-                        text = typeField.value,
-                        tlen = text.length,
-                        coordinates = app.coordinates;
-
-                    for(var i=0; i < tlen; i++){
-
-                        var key = text.charAt(i);
-                        if(/^[A-Za-z]$/.test(key)){
-                            key = key.toUpperCase();
-                        }
-                        if(app.config.exclude && app.EXCLUDES.indexOf(key) == -1){
-                            var coord;
-                            coord = coordinates[key];
-                            if(coord){
-                                for(var s = 0; s < coord.length; s += 2) {
-                                    var joined = coord.slice(s, s+2).join(";");
-                                    if(!temp[joined])
-                                        temp[joined] = 0;
-
-                                    temp[joined] += 1;
-                                }
-                            }
-                        }
-                    }
-
-                    for(var k in temp){
-                        var xy = k.split(";");
-                        var val = temp[k];
-
-                        data.push({x: xy[0], y: xy[1], count: val});
-
-                        if(val > max)
-                            max = val;
-                    }
-
-                    app.heatmap.store.setDataSet({max: max, data: data});
-                }
-
-                var len = typeField.value.length;
-                typeField.onkeypress = function(e){
-                    // ignore cursor IE hack
-                    if(e.charCode == 0 && [37, 38, 39, 40].indexOf(e.keyCode) > -1)
-                        return;
-
-                    var key = String.fromCharCode(e.charCode || e.keyCode);
-
-                    if(/^[A-Za-z]$/.test(key)){
-                        key = key.toUpperCase();
-                    }
-                    if(app.config.exclude && app.EXCLUDES.indexOf(key) == -1){
-                        var coord = app.coordinates[key]
-                        if (coord) {
-                            for (var s = 0; s < coord.length; s+=2) {
-                                app.heatmap.store.addDataPoint.apply(app.heatmap.store,coord.slice(s, s+2));
-                            }
-                        }
-                    }
-                };
-                typeField.onkeyup = function(e){
-                    if(Math.abs(len-this.value.length) > 1 || e.keyCode == 8){
-                        repaint();
-                    }
-                    len = this.value.length;
-                };
-
-                var items = document.getElementsByTagName("li");
-                for(var i=0; i < items.length; i++){
-                    (function(i){
-                        items[i].onclick = function(){
-                            typeField.value = app.SAMPLE_TEXT[i];
-                            repaint();
-                        };
-                    })(i);
-                }
-                var $ = function(id){
-                    return document.getElementById(id);
-                };
-                var gradients = [
-                    { 0.45: "rgb(0,0,255)", 0.55: "rgb(0,255,255)", 0.65: "rgb(0,255,0)", 0.95: "yellow", 1.0: "rgb(255,0,0)"},
-                    { 0.45: "rgb(255,255,255)", 0.70: "rgb(0,0,0)",0.9: "rgb(2,255,246)", 1.0: "rgb(3,34,66)"},
-                    { 0.45: "rgb(216,136,211)", 0.55: "rgb(0,255,255)", 0.65: "rgb(233,59,233)", 0.95: "rgb(255,0,240)", 1.0: "yellow"}
-                ];
-                $("apply").onclick = function(){
-                    var cfg = {};
-                    cfg.radius = Math.pow(10,$("fingertip").selectedIndex) +40;
-                    cfg.gradient = gradients[$("gradient").selectedIndex];
-                    cfg.layout =  $("layout").value;
-                    app.heatmap.cleanup();
-                    app.init(cfg);
-                    repaint();
-                }
-                repaint();
-            })();
-        </script>
-
+        <script src="app.js"></script>
         <!-- IGNORE -->
         <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
         <!-- Piwik -->
         <script type="text/javascript">
-            var pkBaseURL = (("https:" == document.location.protocol) ? "https://www.patrick-wied.at/helper/piwik/" : "http://www.patrick-wied.at/helper/piwik/");
-            document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+          var _paq = _paq || [];
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u=(("https:" == document.location.protocol) ? "https" : "http") + "://www.patrick-wied.at/helper/piwik/";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', 1]);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+            g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+          })();
         </script>
-        <script type="text/javascript">
-            try {
-            var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
-            piwikTracker.trackPageView();
-            piwikTracker.enableLinkTracking();
-            } catch( err ) {}
-        </script><noscript><p><img src="http://www.patrick-wied.at/helper/piwik/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
-        <!-- End Piwik Tag -->
+        <noscript><p><img src="http://www.patrick-wied.at/helper/piwik/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+        <!-- End Piwik Code -->
         <!-- /IGNORE -->
     </body>
 </html>
