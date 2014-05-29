@@ -5,19 +5,30 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <title>Keyboard Heatmap | Realtime heatmap visualization of text character distribution</title>
         <meta name="robots" content="index, follow" />
-        <meta name="description" content="This is a demonstration of a keyboard heatmap visualizing character distribution of texts while you're typing" />
+        <meta name="description" content="Keyboard Heatmap Visualization showing character distribution on different keyboard layouts while you're typing" />
         <meta name="author" content="Patrick Wied" />
         <meta name="keywords" content="heatmap, text heatmap, character distribution, heatmap.js" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="canonical" href="http://www.patrick-wied.at/projects/heatmap-keyboard/" />
         <link rel="shortcut icon" type="image/png" href="../../img/favicon.png" />
         <link rel="stylesheet" href="style.css" />
+        <meta property="twitter:card" content="summary"/>
+      <meta property="twitter:site" content="@patrickwied" />
+      <meta property="twitter:creator" content="@patrickwied" />
+      <meta property="twitter:url" content="http://www.patrick-wied.at/projects/heatmap-keyboard/"/>
+      <meta property="twitter:title" content="Keyboard Heatmap Visualization"/>
+      <meta property="twitter:description" content="Keyboard Heatmap Visualization showing character distribution on different keyboard layouts while you're typing" />
+      <meta property="twitter:image" content="http://www.patrick-wied.at/assets/img/social-img.jpeg" />
+      <meta property="og:title" content="Keyboard Heatmap Visualization" />
+      <meta property="og:url" content="http://www.patrick-wied.at/assets/img/heatmap-keyboard.jpg" />
+      <meta property="og:description" content="Keyboard Heatmap Visualization showing character distribution on different keyboard layouts while you're typing" />
+      <meta property="og:image" content="http://www.patrick-wied.at/assets/img/heatmap-keyboard.jpg" />
     </head>
     <body>
         <div id="wrapper">
             <div id="header">
             <h1>Visualizing character distribution of texts on a keyboard while you're typing...</h1>
-            <div style="position:absolute;right:10px;top:75px;z-index:10000;">
+            <div style="position: fixed;top: 75px;right: -1px;z-index: 10000;padding: 10px;background: rgba(0,0,0,.05);">
                 <script type="text/javascript">
                 /* <![CDATA[ */
                 (function() {
@@ -29,8 +40,8 @@
                 })();
                 /* ]]> */
                 </script>
-                <a class="FlattrButton" style="display:none;" href="http://www.patrick-wied.at/static/heatmapjs/"></a>&nbsp;
-                <a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="patrickwied">Tweet</a>
+                <a class="FlattrButton" style="display:none;" href="http://www.patrick-wied.at/static/heatmapjs/"></a><br />
+                <a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="patrickwied">Tweet</a><br />
                 <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
                 <g:plusone size="tall"></g:plusone>
             </div>
@@ -84,13 +95,16 @@
             <div id="keyboard">
 
             </div>
+            <div>
+                <h3 style="text-align:center;">follow <a href="https://twitter.com/patrickwied" target="_blank" title="Patrick Wied on twitter" style="color:red;text-decoration:none;">@patrickwied</a> on twitter for other cool experiments</h3>
+            </div>
             <div id="footer">
-                This is a spare time project I made with heatmap.js, a JavaScript Framework for generating Web heatmaps.<br />
+                <h3>About the project</h3>
+                This is a spare time project I created with heatmap.js, a JavaScript Framework for generating Web heatmaps.<br />
                 Apple Inc. owns the rights on that keyboard image.
-                If you have any questions, feel free to contact me. <a href="http://www.patrick-wied.at" title="Patrick Wied" target="_blank">www.patrick-wied.at</a>
+                If you have any questions, feel free to contact me. <a href="http://www.patrick-wied.at" title="Patrick Wied" target="_blank" style="color:red;text-decoration:none;font-weight:bold;">www.patrick-wied.at</a>
             </div>
         </div>
-        <a href="https://github.com/pa7/Keyboard-Heatmap"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/bec6c51521dcc8148146135149fe06a9cc737577/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
         <script type="text/javascript">
             var app = {};
             app.config = {

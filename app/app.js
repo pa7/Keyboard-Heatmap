@@ -54,6 +54,7 @@
   app.init = function initialize() {
     var cfg = arguments[0] || {};
     app.configure(cfg);
+    repaintAll();
   };
 
   app.configure = function configure(cfg) {
@@ -125,6 +126,5 @@
       };
     })(i);
   }
-  repaintAll();
 
 })();
