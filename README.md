@@ -16,6 +16,7 @@ I wrote an article about [how to add your own keyboard layout to the keyboard he
 
 ## Changelog
 - Added DVORAK Layout
+- Added ERGODOX DVORAK Layout 
 
 ## License
 The Keyboard Heatmap is licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php "") and [Beerware](http://en.wikipedia.org/wiki/Beerware "") License.
