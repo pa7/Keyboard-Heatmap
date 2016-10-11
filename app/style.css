@@ -33,10 +33,13 @@ html{height:100%}body{height:100%;overflow:auto;font-family:Helvetica,Arial,Sans
                 vertical-align:middle;
             }
             #footer {
-                margin-top:30px;
-                line-height:18px;
-                font-size:14px;
+                margin-top:10px;
+                padding-top:0 !important;
+                line-height:24px;
+                font-size:16px;
+                
             }
+            #footer h3 { font-size:24px; margin:0; margin-bottom:10px;}
             h1 {
                 font-size:35px;
                 padding-top:15px;
@@ -108,3 +111,4 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#fabc3f, endCol
             .button:hover {
                     background: #fab505;
              }
+
