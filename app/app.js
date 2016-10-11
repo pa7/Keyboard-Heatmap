@@ -107,7 +107,7 @@
     lastValue = currentValue;
   };
 
-  $("apply").onclick = function(){
+  $("layout").onchange = $("fingertip").onchange = $("gradient").onchange = function(){
     var cfg = {};
     cfg.radius = Math.pow(10,$("fingertip").selectedIndex) +40;
     cfg.gradient = gradients[$("gradient").selectedIndex];
