@@ -6,6 +6,7 @@ Currently support keyboard layouts:
 - ASSET
 - CARPALX_QFMLWY
 - QWERTY
+- QWERTZ
 - DVORAK
 - DVORAK PROGRAMMER
 - COLEMAK
