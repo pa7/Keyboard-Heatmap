@@ -16,7 +16,7 @@ html,body,div,h1,h2 {
 }
 #wrapper {
     position:relative;
-    width: 800px;
+    width:800px;
     margin:auto;
     height:100%;
 }
@@ -25,12 +25,12 @@ html,body,div,h1,h2 {
     padding:10px;
     margin-top:10px;
     font-size:26px;
-    border: 5px solid grey;
-    height: 80px;
-    word-wrap: break-word;
+    border:5px solid grey;
+    height:80px;
+    word-wrap:break-word;
 }
 #inputarea {
-    padding: 15px 0px 15px 0px;
+    padding:15px 0px 15px 0px;
 }
 #keyboard {
     position:relative;
@@ -39,7 +39,7 @@ html,body,div,h1,h2 {
     height:373px;
     bottom:0;
     padding:0;
-    background-image:url(img/QWERTY.png);
+    background-image:url('img/QWERTY.png');
 }
 #presample {
     font-weight:bold;
@@ -79,45 +79,39 @@ li:hover {
     background-color:#c0dbf6;
 }
 div {
-    padding:10px 0 10px 0;
+    padding:10px 0;
 }
-#customizearea {
-    position:relative;
-    height:100px;
-}
-#customize div{
+#customizearea div{
     font-size:20px;
-    line-height:30px;
+    padding:2px 0;
+}
+#customize .item {
+    display:flex;
+    width:500px;
+    justify-content:space-between;
+    align-items:center;
 }
 #customize select{
-    position:absolute;
     font-size:25px;
-    left:300px;
     width:200px;
 }
-#fingertip{
-    margin-top:-10px;
-}
-#layout {
-    margin-top:10px;
-}
 .button {
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 35px;
-    padding: 10px;
-    text-decoration: none;
-    -webkit-border-radius: 28px;
-    -moz-border-radius: 28px;
-    -webkit-box-shadow: 0px 1px 3px #666666;
-    -moz-box-shadow: 0px 1px 3px #666666;
-    text-shadow: 1px 1px 3px #666666;
-    border: solid #d9941c 2px;
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#fabc3f), to(#fa6f05));
-    background: -moz-linear-gradient(top, #fabc3f, #fa6f05);
-    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#fabc3f, endColorStr=#fa6f05);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#fabc3f, endColorStr=#fa6f05);
+    font-family:Arial;
+    color:#ffffff;
+    font-size:35px;
+    padding:10px;
+    text-decoration:none;
+    -webkit-border-radius:28px;
+    -moz-border-radius:28px;
+    -webkit-box-shadow:0px 1px 3px #666666;
+    -moz-box-shadow:0px 1px 3px #666666;
+    text-shadow:1px 1px 3px #666666;
+    border:solid #d9941c 2px;
+    background:-webkit-gradient(linear, 0 0, 0 100%, from(#fabc3f), to(#fa6f05));
+    background:-moz-linear-gradient(top, #fabc3f, #fa6f05);
+    -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#fabc3f, endColorStr=#fa6f05);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#fabc3f, endColorStr=#fa6f05);
 }
 .button:hover {
-    background: #fab505;
+    background:#fab505;
 }
