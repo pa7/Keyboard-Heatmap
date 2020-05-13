@@ -11,8 +11,8 @@ Currently support keyboard layouts:
 - COLEMAK
 - LIIGOL
 - ERGODOX COLEMAK/DVORAK/QWERTY
-- MINIMAK 4/8/12 K
 - MicroTRON QWERTY
+- MINIMAK 4/8/12 K
 - NORMAN
 - WORKMAN
 
