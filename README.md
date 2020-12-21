@@ -33,7 +33,7 @@ I wrote an article about [how to add your own keyboard layout to the keyboard he
 - Added DVORAK Layout
 - Added ERGODOX DVORAK Layout 
 - Added LIIGOL Layout
-- Added HALMAK and LCARPALX_QGMLWB and COLEMAK MOD-DH ayouts
+- Added HALMAK and CARPALX_QGMLWB and COLEMAK MOD-DH Layouts
 
 ## Contributions
 - Zeff Houssney contributed the DVORAK background image and the layout's coordinates
