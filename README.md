@@ -17,7 +17,6 @@ Currently support keyboard layouts:
 - HALMAK
 - CARPALX_QGMLWB 
 - COLEMAK MOD-DH
-- COLEMAK ANGLE-MOD
 
 **Contributions are very welcome!**
 
@@ -39,7 +38,7 @@ I wrote an article about [how to add your own keyboard layout to the keyboard he
 ## Contributions
 - Zeff Houssney contributed the DVORAK background image and the layout's coordinates
 - Liigo Zhuang contributed the LIIGOL layout design, background image and the layout's coordinates 
-- Paul Guerin  contributed the HALMAK and CARPALX_QGMLWB and COLEMAK MOD layouts design, background image and the layout's coordinates 
+- Paul Guerin  contributed the HALMAK and CARPALX_QGMLWB and COLEMAK MOD layout design, background image and the layout's coordinates 
 
 ## License
 The Keyboard Heatmap is licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php "") and [Beerware](http://en.wikipedia.org/wiki/Beerware "") License.
