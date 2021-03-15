@@ -5,18 +5,19 @@ The keyboard heatmap shows the distribution of characters of a text while you're
 Currently support keyboard layouts:
 - ASSET
 - CARPALX_QFMLWY
-- QWERTY
+- CARPALX_QGMLWB 
+- COLEMAK
+- COLEMAK MOD-DH
 - DVORAK
 - DVORAK PROGRAMMER
-- COLEMAK
+- ENGRAM
+- HALMAK
 - LIIGOL
-- ERGODOX COLEMAK/DVORAK/QUERY
 - MINIMAK 4/8/12 K
 - NORMAN
+- QWERTY
 - WORKMAN
-- HALMAK
-- CARPALX_QGMLWB 
-- COLEMAK MOD-DH
+- ERGODOX COLEMAK/DVORAK/QUERY
 
 **Contributions are very welcome!**
 
@@ -33,12 +34,12 @@ I wrote an article about [how to add your own keyboard layout to the keyboard he
 - Added DVORAK Layout
 - Added ERGODOX DVORAK Layout 
 - Added LIIGOL Layout
-- Added HALMAK and CARPALX_QGMLWB and COLEMAK MOD Layouts
+- Added HALMAK, CARPALX_QGMLWB, COLEMAK MOD, and ENGRAM Layouts
 
 ## Contributions
 - Zeff Houssney contributed the DVORAK background image and the layout's coordinates
 - Liigo Zhuang contributed the LIIGOL layout design, background image and the layout's coordinates 
-- Paul Guerin  contributed the HALMAK and CARPALX_QGMLWB and COLEMAK MOD layout design, background image and the layout's coordinates 
+- Paul Guerin  contributed the HALMAK, CARPALX_QGMLWB, COLEMAK MOD, and ENGRAM layout design, background image and the layout's coordinates 
 
 ## License
 The Keyboard Heatmap is licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php "") and [Beerware](http://en.wikipedia.org/wiki/Beerware "") License.
