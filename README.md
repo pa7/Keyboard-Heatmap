@@ -39,6 +39,7 @@ I wrote an article about [how to add your own keyboard layout to the keyboard he
 - Zeff Houssney contributed the DVORAK background image and the layout's coordinates
 - Liigo Zhuang contributed the LIIGOL layout design, background image and the layout's coordinates 
 - Prashanth K S contributed the COLEMAK MOD-DH and HALMAK layout's background image and coordinates
+- Prashanth K S contributed the BEAKL 15, BEAKL 27, BEAKL 30, and BEAKL 27-A layout's background images and coordinates
 
 ## License
 The Keyboard Heatmap is licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php "") and [Beerware](http://en.wikipedia.org/wiki/Beerware "") License.
